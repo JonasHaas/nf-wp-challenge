@@ -12,12 +12,12 @@ Create a Terraform script with the following components
 - [x] Public & private subnets
 - [x] Internet gateway
 - [x] Nat gateway
-- [x] Security groups (http, SSH)
+- [ ] Security groups (http, SSH)
 - [x] Public & Private routing tables
 
 Optional:
 
-- [] Enable Tracing (Logs)
+- [ ] Enable Tracing (Logs)
 - [x] Create a file to keep the variables
 - [x] Naming conventions
 - [x] Best practices
