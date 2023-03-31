@@ -9,12 +9,12 @@ terraform {
   backend "s3" {
     bucket = "lab-environment-state-bucket"
     key    = "main.tfstate"
-    region = var.region
+    region = "eu-central-1"
   }
 }
 
 # Configure the AWS Provider
-provider "aws"
+provider "aws" {
   region  = var.region
   profile = var.cred_profile_name
 }
