@@ -6,8 +6,9 @@ terraform {
     }
   }
   # @replace bucket = "" with your own unique bucket name
+  # @replace region with your desired region, do it also in the root variable.tf
   backend "s3" {
-    bucket = "lab-environment-state-bucket"
+    bucket = "nvpnotbifz-state-bucket"
     key    = "main.tfstate"
     region = "eu-central-1"
   }
@@ -18,5 +19,3 @@ provider "aws" {
   region  = var.region
   profile = var.cred_profile_name
 }
-
-data "aws_region" "current" {}
