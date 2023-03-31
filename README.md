@@ -12,12 +12,12 @@ Create a Terraform script with the following components
 - [x] Public & private subnets
 - [x] Internet gateway
 - [x] Nat gateway
-- [ ] Security groups (http, SSH)
+- [x] Security groups (http, SSH)
 - [x] Public & Private routing tables
 
 Optional:
 
-- [ ] Enable Tracing (Logs)
+- [x] Enable Tracing (Logs)
 - [x] Create a file to keep the variables
 - [x] Naming conventions
 - [x] Best practices
@@ -25,3 +25,17 @@ Optional:
 
 
 ## Task 2
+
+Add Wordpress to your Setup
+
+- [ ] Create a wordpress server
+- [ ] Create a example blog page
+- [ ] Present the website
+
+## Task 3
+
+Migrate Wordpress local db to RDS
+
+## Task 4
+
+Autoscaling and Loadbalancing
