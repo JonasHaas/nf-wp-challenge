@@ -1,6 +1,8 @@
+# Create a VPC using the terraform-aws-modules/vpc/aws module, 
+# with public, private, and database subnets across multiple Availability Zones
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.14.0"
+  version = "3.19.0"
 
   name                         = "${var.prefix}-${var.environment}-vpc"
   cidr                         = var.vpc_cidr

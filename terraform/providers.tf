@@ -14,7 +14,7 @@ terraform {
   }
 }
 
-# Configure the AWS Provider
+# Configure the AWS provider with the specified region and credential profile
 provider "aws" {
   region  = var.region
   profile = var.cred_profile_name

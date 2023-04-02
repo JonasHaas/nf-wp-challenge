@@ -1,6 +1,9 @@
+# Create an SSH security group using the terraform-aws-modules/security-group/aws module, 
+# allowing SSH access from anywhere and access from within the VPC
+
 module "ssh_sg" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "4.9.0"
+  version = "4.17.1"
 
   name        = "${var.prefix}-${var.environment}-ssh-sg"
   description = "SSH Security Group"
@@ -31,15 +34,19 @@ module "ssh_sg" {
   tags = var.tags
 }
 
+
+# Create an HTTP security group using the terraform-aws-modules/security-group/aws module, 
+# allowing HTTP access from anywhere and egress to the VPC
 module "http_sg" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "4.9.0"
+  version = "4.17.1"
 
   name        = "${var.prefix}-${var.environment}-http-sg"
   description = "Frontend Security Group"
   vpc_id      = module.vpc.vpc_id
 
-   ingress_with_cidr_blocks = [
+  # ingress
+  ingress_with_cidr_blocks = [
     {
       from_port   = 80
       to_port     = 80
@@ -60,5 +67,26 @@ module "http_sg" {
     },
   ]
 
+  tags = var.tags
+}
+
+module "db_sg" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "4.17.1"
+
+  name        = "${var.prefix}-${var.environment}-db-sg"
+  description = "MySQL Security Group"
+  vpc_id      = module.vpc.vpc_id
+
+  # ingress
+  ingress_with_cidr_blocks = [
+    {
+      from_port   = 3306
+      to_port     = 3306
+      protocol    = "tcp"
+      description = "MySQL access from within VPC"
+      cidr_blocks = module.vpc.vpc_cidr_block
+    },
+  ]
   tags = var.tags
 }

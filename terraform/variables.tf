@@ -1,20 +1,13 @@
-variable "region" {
-    default = "eu-central-1"
-}
-
-variable "prefix" {
-  description = "Prefix for all the resources to be created. Please note thst 2 allows only lowercase alphanumeric characters and hyphen"
-  default     = "wordpress"
-}
-
-variable "stack_name" {
-    description = "name for the project stack - used as prefix for names"
-    default     = "jsh"
-}
-
+# Credentials
 variable "cred_profile_name" {
-    description = "Use the profile name for your AWS CLI credentials"
-    default     = "default"
+  description = "Use the profile name for your AWS CLI credentials"
+  default     = "default"
+}
+
+# Naming and Tagging
+variable "stack_name" {
+  description = "name for the project stack - used as prefix for names"
+  default     = "jsh"
 }
 
 variable "environment" {
@@ -22,8 +15,18 @@ variable "environment" {
   default     = "dev"
 }
 
+variable "prefix" {
+  description = "Prefix for all the resources to be created. Please note thst 2 allows only lowercase alphanumeric characters and hyphen"
+  default     = "wordpress"
+}
+
+# Networking
+variable "region" {
+  default = "eu-central-1"
+}
+
 variable "internet_cidr_block" {
-    default = ["0.0.0.0/0"]
+  default = ["0.0.0.0/0"]
 }
 
 variable "vpc_cidr" {
@@ -49,6 +52,23 @@ variable "tags" {
   description = "AWS Tags to add to all resources created (where possible); see https://aws.amazon.com/answers/account-management/aws-tagging-strategies/"
   type        = map(any)
   default = {
-    stack         = "wordpress"
+    stack = "wordpress"
   }
 }
+
+# RDS
+variable "rds_engine" {
+  description = "RDS engine"
+  default     = "mariadb"
+}
+
+variable "rds_engine_version" {
+  description = "RDS engine version"
+  default     = "10.6.7"
+}
+
+variable "rds_instance_class" {
+  description = "RDS instance class"
+  default     = "db.t3.micro"
+}
+
