@@ -20,6 +20,10 @@ variable "prefix" {
   default     = "wordpress"
 }
 
+variable "ssh_key_name" {
+  description = "SSH Key"
+}
+
 # Networking
 variable "region" {
   default = "eu-central-1"
@@ -72,3 +76,27 @@ variable "rds_instance_class" {
   default     = "db.t3.micro"
 }
 
+# ASG
+variable "asg_instance_type" {
+  description = "AutoScaling Group Instance type"
+  default     = "t3.micro"
+}
+variable "asg_launch_template_description" {
+  description = "AutoScaling Group launch template description"
+  default     = "Wordpress Launch Template"
+}
+
+variable "asg_min_size" {
+  description = "AutoScaling Group Min Size "
+  default     = 1
+}
+
+variable "asg_max_size" {
+  description = "AutoScaling Group Max Size "
+  default     = 2
+}
+
+variable "asg_desired_capacity" {
+  description = "AutoScaling Group Desired Capacity"
+  default     = 1
+}

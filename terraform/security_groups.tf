@@ -90,3 +90,18 @@ module "db_sg" {
   ]
   tags = var.tags
 }
+
+module "efs_sg" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "4.9.0"
+
+  name        = "${var.prefix}-${var.environment}-efs-sg"
+  description = "EFS Security Group"
+  vpc_id      = module.vpc.vpc_id
+
+  # ingress
+  ingress_cidr_blocks = [module.vpc.vpc_cidr_block]
+  ingress_rules       = ["all-all"]
+
+  tags = var.tags
+}

@@ -28,14 +28,14 @@ Optional:
 
 Add Wordpress to your Setup
 
-- [ ] Create a wordpress server
-- [ ] Create a example blog page
-- [ ] Present the website
+- [x] Create a wordpress server
+- [x] Create a example blog page
+- [x] Present the website
 
 ## Task 3
 
-Migrate Wordpress local db to RDS
+- [x] Migrate Wordpress local db to RDS
 
 ## Task 4
 
-Autoscaling and Loadbalancing
+- [x] Autoscaling and Loadbalancing
